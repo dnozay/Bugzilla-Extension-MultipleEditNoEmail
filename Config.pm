@@ -3,6 +3,8 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 package Bugzilla::Extension::MultipleEditNoEmail;
+
+use 5.10.1;
 use strict;
 use constant NAME => 'MultipleEditNoEmail';
 __PACKAGE__->NAME;

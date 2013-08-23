@@ -4,6 +4,7 @@
 
 package Bugzilla::Extension::MultipleEditNoEmail;
 
+use 5.10.1;
 use strict;
 use Bugzilla::User;
 use base qw(Bugzilla::Extension);
