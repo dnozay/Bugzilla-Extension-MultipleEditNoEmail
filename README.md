@@ -8,10 +8,16 @@ purposes only (e.g. keyword tagging, etc).
 
 # Installation
 
-Copy the `z99_MultipleEditNoEmail` directory into the `extensions` directory
-of your Bugzilla installation.
+Copy this directory into the `extensions` directory of your Bugzilla installation.
+Then rename it to `MultipleEditNoEmail`.
+
+# Git submodule
+
+If you have your bugzilla code in git, you may add this extension as a submodule.
 
 # Notes
 
-The directory starts with `z99_` in order to have its `bugmail_recipients`
-hook run last.
+The hook `bugmail_recipients` needs to run last.
+
+- you can prefix the directory name with `z99_` (as well as the package name in the code), or
+- you can patch your bugzilla installation with [this commit](https://github.com/dnozay/bugzilla/commit/b6c58fc7be71d36e788803e027f8c60f91c744b8).
