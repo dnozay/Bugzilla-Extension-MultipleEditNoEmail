@@ -6,5 +6,16 @@ package Bugzilla::Extension::MultipleEditNoEmail;
 
 use 5.10.1;
 use strict;
+
+=over
+
+=item NAME
+
+The extension's name.
+
+=back
+
+=cut
+
 use constant NAME => 'MultipleEditNoEmail';
 __PACKAGE__->NAME;

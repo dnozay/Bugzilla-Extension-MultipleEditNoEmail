@@ -10,6 +10,19 @@ use Bugzilla::User;
 use base qw(Bugzilla::Extension);
 our $VERSION = '1';
 
+=over
+
+=item bugmail_recipients()
+
+The hook that will mark all users in the user cache as having
+their bugmail disabled. In effect, that means we should not
+email them; and they will still show up in the C<excluding:>
+section.
+
+=back
+
+=cut
+
 sub bugmail_recipients {
     my ($self, $args) = @_;
     my ($recipients, $user_cache) = @$args{qw(recipients users)};
