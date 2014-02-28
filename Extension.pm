@@ -28,10 +28,25 @@ sub bugmail_recipients {
     my ($recipients, $user_cache) = @$args{qw(recipients users)};
 
     my $cgi = Bugzilla->cgi;
+    my $dbh = Bugzilla->dbh;
     if ($cgi->param('no_mass_mail')) {
         # Make sure %user_cache has every user in it so far referenced
         foreach my $user_id (keys %$recipients) {
             $user_cache->{$user_id} ||= new Bugzilla::User($user_id);
+        }
+
+        # add user-watching users to the %user_cache
+        if (scalar keys %recipients) {
+            # find users watching other folks.
+            my $involved = join(",", keys %recipients);
+            my $userwatchers =
+                $dbh->selectall_arrayref("SELECT watcher FROM watch
+                                          WHERE watched IN ($involved)");
+            # Put them in the cache
+            foreach my $watch (@$userwatchers) {
+                my $user_id = $watch->[0];
+                $user_cache->{$user_id} ||= new Bugzilla::User($user_id);
+            }
         }
 
         # add global watchers to the cache
