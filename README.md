@@ -20,4 +20,4 @@ If you have your bugzilla code in git, you may add this extension as a submodule
 The hook `bugmail_recipients` needs to run last.
 
 - you can prefix the directory name with `z99_` (as well as the package name in the code), or
-- you can patch your bugzilla installation with [this commit](https://github.com/dnozay/bugzilla/commit/b6c58fc7be71d36e788803e027f8c60f91c744b8).
+- you can patch your bugzilla installation with the patch available on [this ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=908087).
