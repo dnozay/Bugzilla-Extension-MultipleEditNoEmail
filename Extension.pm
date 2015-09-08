@@ -36,9 +36,9 @@ sub bugmail_recipients {
         }
 
         # add user-watching users to the %user_cache
-        if (scalar keys %recipients) {
+        if (scalar keys %$recipients) {
             # find users watching other folks.
-            my $involved = join(",", keys %recipients);
+            my $involved = join(",", keys %$recipients);
             my $userwatchers =
                 $dbh->selectall_arrayref("SELECT watcher FROM watch
                                           WHERE watched IN ($involved)");
